@@ -1,0 +1,184 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  font-size: 0.875rem;
+
+  display: grid;
+  place-content: center;
+  background-color: darkgray;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.container {
+  display: flex;
+  /* align-items: flex-start; */
+}
+
+.friends {
+  padding: 1rem 2rem;
+  flex: 1 1 50%;
+  min-width: 22.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.split {
+  padding: 1rem 2rem;
+  flex: 1 1 50%;
+  min-width: 20rem;
+  background-color: deeppink;
+  /* border-radius: 10px; */
+}
+
+.split > h2 {
+  margin-bottom: 20px;
+}
+
+/* FRIEND */
+.friend {
+  display: grid;
+  grid-template-columns: 50px 1fr 80px;
+  grid-template-rows: 1fr 1fr;
+  column-gap: 10px;
+}
+
+.friend:not(:last-of-type) {
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(87, 85, 85, 0.2);
+}
+
+.friend__img {
+  border-radius: 50%;
+  grid-row: 1 / 3;
+  grid-column: 1 / 3;
+  align-self: center;
+}
+.friend__name {
+  grid-row: 1 / 2;
+  grid-column: 2 / 3;
+  align-self: center;
+}
+.friend__sumarry {
+  grid-row: 2 / 3;
+  grid-column: 2 / 3;
+  align-self: flex-start;
+}
+.friend__select {
+  grid-column: 3;
+  grid-row: 1 / 3;
+
+  align-self: center;
+  justify-self: center;
+}
+
+form button {
+  margin-top: 16px;
+  justify-self: end;
+  grid-column: 2;
+}
+.split__form,
+.friend__form {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  row-gap: 10px;
+}
+.friend__form input,
+.split__form input,
+.split__form select {
+  justify-self: end;
+  border: 0;
+  /* border-radius: 5px; */
+  padding: 5px 10px;
+}
+.friend__form {
+  width: 100%;
+  background-color: deeppink;
+  padding: 10px;
+
+  display: flex;
+}
+.friend__form button {
+  margin: 0;
+}
+
+button {
+  border: 0;
+  background-color: rgb(65, 62, 62);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background-color: rgba(65, 62, 62, 0.8);
+}
+
+.green {
+  color: green;
+}
+.red {
+  color: maroon;
+}
